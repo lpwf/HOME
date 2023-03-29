@@ -10,13 +10,14 @@ from typing import List
 
 
 def find_maximal_subarray_sum(nums: List[int], k: int) -> int:
-    result = 0
-    while k > 0:  # The loop will be executed if the value of k is greater than 0
-        Max = max(nums)  # Maximum value from the list
-        result = result + Max
-        nums.remove(Max)
-        k -= 1
-    return result
+    max_sum = 0
+    subarray = []
+    for i in range(len(nums)):
+        subarray = nums[i:i + k]  # Array containing elements from i to i+k
+        if sum(subarray) > max_sum:  # Checking the sum of the current subarray with the maximum amount found
+            max_sum = sum(subarray)
+    return max_sum
+
 
 
 
