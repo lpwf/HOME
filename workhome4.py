@@ -19,11 +19,13 @@ Write a function that detects if a number is Armstrong number in functionaly sty
 
 
 def is_armstrong(number: int) -> bool:
-    numbers = [int(i) for i in str(number)]
-    count_numbers = len(numbers)
-    Armstrong_num = sum([i ** count_numbers for i in numbers])
-    return Armstrong_num == number
-
-
-assert is_armstrong(153) == True
-assert is_armstrong(10) == False
+    '''
+        Function that detects if a number is Armstrong number.
+    '''
+    digits = [int(n) for n in str(number)]
+    num_dig = len(str(number))
+    arm_didits = list(map(lambda x: x ** num_dig, digits))
+    if sum(arm_didits) == number:
+        return True
+    else:
+        return False
